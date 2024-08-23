@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Google Play</title>
+    <script type="text/javascript">
+        function redirectToApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // Detect if the user is on an Android device
+           try {
+                if (/android/i.test(userAgent)) {
+                // Redirect to Google Play Store via a deep link
+                
+                window.location.href = "intent://research.mengantar.com/r/CODEREFERRAL#Intent;scheme=https;package=com.mengantar.dev;end"
+                // Fallback to the web URL if the Play Store app is not available
+                setTimeout(function() {
+                    window.location.href = "intent://details?id=com.mengantar#Intent;scheme=market;package=com.android.vending;end";
+                }, 1000);
+            } else {
+                // For non-mobile or non-Android devices
+                document.getElementById("message").innerText = "Please open this link on an Android device to download the app.";
+            }
+           }catch(e){
+                document.getElementById("message").innerText = e;
+           }
+        }
+    </script>
+</head>
+<body onload="redirectToApp()">
+    <h1 id="message">Redirecting to Google Play Store...</h1>
+</body>
+</html>
