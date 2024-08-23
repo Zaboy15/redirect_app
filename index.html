@@ -12,10 +12,17 @@
                 if (/android/i.test(userAgent)) {
                 // Redirect to Google Play Store via a deep link
                 
-                window.location.href = "intent://research.mengantar.com/r/CODEREFERRAL#Intent;scheme=https;package=com.mengantar.dev;end"
+                window.location.href = "intent://app.mengantar.com/r/CODEREFERRAL#Intent;scheme=https;package=com.mengantar;end"
                 // Fallback to the web URL if the Play Store app is not available
                 setTimeout(function() {
-                    window.location.href = "intent://details?id=com.mengantar#Intent;scheme=market;package=com.android.vending;end";
+                    window.location.href = "https://play.google.com/store/apps/details?id=com.mengantar";
+                    
+                    // window.location.href = "market://details?id=com.mengantar";
+                    // window.location.href = "intent://details?id=com.mengantar#Intent;scheme=market;package=com.android.vending;end";
+                    
+                    
+
+                
                 }, 1000);
             } else {
                 // For non-mobile or non-Android devices
